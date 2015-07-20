@@ -1,0 +1,144 @@
+
+
+search_parameters
+{
+	"geobox":[
+		[0.0, 0.0],
+		[10, 10],
+		[0, 10],
+		[10, 0],
+	]
+	"from": 1st Jan 2015,
+	"to": 30th Jan 2015,
+}
+q?geobox=%5B0.0%2C+0.0%5D&geobox=%5B10%2C+10%5D&geobox=%5B0%2C+10%5D&geobox=%5B10%2C+0%5D&to=2015-01-30T00%3A00%3A00&from=2015-01-01T00%3A00%3A00
+
+
+
+{
+	"central_point": [0,0],
+	"within":10000,
+	"from": 1st Jan 2015,
+	"to": 30th Jan 2015,
+}
+
+
+twitter_info = [
+	{
+		"username": "gemma"
+		"text": "enjoying a matcha late".
+		"location":"timberland",
+		"time":"13:00"
+	},
+	{
+		"username": "ada"
+		"text": "enjoying a late".
+		"location":"timberland"
+		"time":"time":"13:00"
+	},
+	{
+		"username": "rainey",
+		"text": "just arrived",
+		"location": "timberland",
+		"time":"13:00"
+	},
+	{
+		"username": "gemma",
+		"text": "catching my breath after escaping the fire",
+		"location": "seven dials",
+		"time": "13:50"
+	},
+	{
+		"username": "gemma"
+		"text": "escaped the fire".
+		"location":"starbucks",
+		"time":"14:00"
+	},
+	{
+		"username": "ada"
+		"text": "escaped the fire".
+		"location":"starbucks"
+		"time":"time":"14:00"
+	},
+	{
+		"username": "rainey"
+		"text": "escaped the fire".
+		"location":"costa",
+		"time":"14:00"
+	},
+]
+
+
+groups = [
+	{
+		"unique_identifier":"gemma"
+		"group_size": 1,
+		movements: [
+			{
+				"timestamp":"13:00",
+				"location":"timberland"
+			},
+			{
+				"timestamp":"13:50",
+				"location":"seven dials"
+			},
+			{
+				"timestamp":"14:00",
+				"location":"starbucks"
+			}
+		]
+	}
+]
+
+movements = [
+	{
+		"unique_identifier":"gemma"
+		"group_size": 1,
+		"start_coordinates": "Brighton"
+		"end_coordinates": "Timberyard"
+		"start_date": 13:00,
+		"end_date": 14:00,
+	},
+	{
+		"unique_identifier":"ada",
+		"group_size": 1,
+		"start_coordinates": "High Widcombe"
+		"end_coordinates": "Timberyard"
+		"start_date": 13:00,
+		"end_date": 14:00,
+	},
+	{
+		"unique_identifier":"gemma+ada"
+		"group_size": 2,
+		"child_group_ids":["gemma", "ada"]
+		"start_coordinates": "Timberland"
+		"end_coordinates": "Starbucks"
+		"start_date": 13:00,
+		"end_date": 14:00,
+	},
+	{
+		"unique_identifier":"gemma"
+		"group_size": 1,
+		"start_coordinates": "Starbucks"
+		"end_coordinates": "Brighton"
+		"start_date": 13:00,
+		"end_date": 14:00,
+	},
+	{
+		"unique_identifier":"ada",
+		"group_size": 1,
+		"start_coordinates": "Starbucks"
+		"end_coordinates": "High Widcombe"
+		"start_date": 13:00,
+		"end_date": 14:00,
+	},
+	{
+ 		"unique_identifier":"rainey",
+		"group_size": 1,
+		"start_coordinates": "Timberland"
+		"end_coordinates": "Costa"
+		"start_date": 13:00,
+		"end_date": 14:00,
+	}
+]
+
