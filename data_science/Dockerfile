@@ -1,2 +1,2 @@
-FROM ubuntu
-RUN apt-get update
+FROM python:2.7
+# RUN apt-get update

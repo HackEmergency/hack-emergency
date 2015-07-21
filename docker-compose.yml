@@ -4,8 +4,8 @@ frontend:
         - "5000:5000"
     volumes:
         - frontend/:/code
-        # links:
-        #     - mongodb:mongodb
+    links:
+        - mongodb:mongodb
 
 twitterstreamer:
     build: twitter_streamer
@@ -25,6 +25,7 @@ datascience:
 
 mongodb:
     image: mongo
-
+    volumes:
+        - mongo_data/
 rabbitmq:
     image: rabbitmq
