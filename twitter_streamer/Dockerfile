@@ -3,9 +3,9 @@ FROM python:2.7
 #RUN apt-get install python python-pip -y
 # COPY requirements.txt .
 # RUN mkdir /code
-ADD . /code
-ADD ../conf /etc/hackemergency
-ADD ../celery_base /source/celery_base
+VOLUME /code
+VOLUME /etc/hackemergency
+ADD requirements.txt /code/requirements.txt
 WORKDIR /code
 RUN ls > out.txt
 RUN pip install -r requirements.txt

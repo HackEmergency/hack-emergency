@@ -11,6 +11,7 @@ twitterstreamer:
     build: twitter_streamer
     volumes:
         - twitter_streamer/:/code
+        - conf/:/etc/hackemergency
     links:
         - mongodb:mongodb
         - rabbitmq:rabbitmq
