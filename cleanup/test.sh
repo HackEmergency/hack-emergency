@@ -1,5 +1,5 @@
 #!/bin/bash
-./tugboat_template.sh >> ~/.tugboat
+./cleanup/tugboat_template.sh >> ~/.tugboat
 test_running=$(tugboat droplets | grep test)
 if [[ "$test_running" != "" ]] 
 	then
