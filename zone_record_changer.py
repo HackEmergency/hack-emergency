@@ -17,6 +17,7 @@ have your current external IP address.
 
 uri = "https://%s:x@api.memset.com/v1/xmlrpc"
 
+import os
 import sys
 from xmlrpclib import ServerProxy
 from pprint import pformat
@@ -30,7 +31,11 @@ def change_ip(s, hostname, new_ip):
 
     Returns a boolean if the record changed
     """
-    leafname, domain = hostname.split(".", 1)
+    # import ipdb; ipdb.set_trace()
+    chunks = hostname.split(".")
+    domain = ".".join(chunks[-2:])
+    leafname = ".".join(chunks[:-2])
+    # leafname, domain = hostname.split(".", 1)
 
     # Find the zone that the domain is in first
     zone_domains = s.dns.zone_domain_list()
@@ -80,10 +85,11 @@ def main():
         print >>sys.stderr, "Syntax: %s <api_key> <hostname>" % sys.argv[0]
         sys.exit(1)
     api_key, hostname = sys.argv[1:]
-    external_ip = urlopen("http://api.externalip.net/ip/").read().strip()
-    print "External IP is '%s'" % external_ip
+    # external_ip = urlopen("http://api.externalip.net/ip/").read().strip()
+    docker_ip = os.popen("docker-machine ip dev").read().strip()
+    print "Docker Machine IP is {}".format(docker_ip)
     s = ServerProxy(uri % api_key)
-    if change_ip(s, hostname, external_ip):
+    if change_ip(s, hostname, docker_ip):
         reload_dns(s)
     else:
         print "Zone record unchanged, not reloading"
