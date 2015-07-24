@@ -1,0 +1,32 @@
+frontend:
+    build: frontend
+    ports:
+        - "80:5000"
+    # volumes:
+        # - frontend/:/code
+    links:
+        - mongodb:mongodb
+
+twitterstreamer:
+    build: twitter_streamer
+    volumes:
+        - twitter_streamer/:/code
+        - conf/:/etc/hackemergency
+    links:
+        - mongodb:mongodb
+        - rabbitmq:rabbitmq
+
+datascience:
+    build: data_science
+    volumes:
+        - data_science/:/code
+    links:
+        - mongodb:mongodb
+        - rabbitmq:rabbitmq
+
+mongodb:
+    image: mongo
+    volumes:
+        - mongo_data/
+rabbitmq:
+    image: rabbitmq
