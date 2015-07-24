@@ -81,12 +81,13 @@ def main():
     """
     Find the external IP and update the zone with it
     """
-    if len(sys.argv) != 3:
-        print >>sys.stderr, "Syntax: %s <api_key> <hostname>" % sys.argv[0]
+    if len(sys.argv) != 4:
+        print >>sys.stderr, "Syntax: %s <api_key> <hostname> <docker-machine>" % sys.argv[0]
         sys.exit(1)
-    api_key, hostname = sys.argv[1:]
+    api_key, parent_hostname, docker_machine = sys.argv[1:]
+    hostname = ".".join([docker_machine, parent_hostname])
     # external_ip = urlopen("http://api.externalip.net/ip/").read().strip()
-    docker_ip = os.popen("docker-machine ip dev").read().strip()
+    docker_ip = os.popen("docker-machine ip {}".format(docker_machine)).read().strip()
     print "Docker Machine IP is {}".format(docker_ip)
     s = ServerProxy(uri % api_key)
     if change_ip(s, hostname, docker_ip):
