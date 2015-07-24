@@ -8,4 +8,7 @@ WORKDIR /code
 ADD requirements.txt /code/requirements.txt
 RUN ls > out.txt
 RUN pip install -r requirements.txt
-CMD python app.py
+#This copies it for deployment
+ADD . /code
+CMD python /code/app.py
+# CMD bash
