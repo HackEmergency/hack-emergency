@@ -19,4 +19,4 @@ def send_bootstrap(path):
     return send_from_directory('bootstrap', path)
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", debug=True, port=9000)
+    app.run(host="0.0.0.0", debug=True)
