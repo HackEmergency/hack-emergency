@@ -179,7 +179,7 @@ header .intro-text .skills {
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus 
 {
-
+    color: #FFCC00;
 }
 
 section {
@@ -213,6 +213,20 @@ section.success a.active {
         padding-top: 75px;
     }
 }
+
+.btn-high
+{
+    background-color: #d62c1a;
+}
+
+.btn-medium
+{
+}
+
+.btn-low
+{
+}
+
 #feeds {
     color: #fff;
 	background-color: #2c3e50;	
