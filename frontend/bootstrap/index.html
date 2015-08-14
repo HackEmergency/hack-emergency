@@ -78,10 +78,12 @@
 					<script>
 					    // add all your code to this method, as this will ensure that page is loaded
 					    AmCharts.ready(function () {
+						
 					        // create AmMap object
 					        var map = new AmCharts.AmMap();
 					        // set path to images
 					        map.pathToImages = "ammap/images/";
+							map.panEventsEnabled = true; // this line enables pinch-zooming and dragging on touch devices
 
 					        /* create data provider object
 					        map property is usually the same as the name of the map file.
@@ -94,8 +96,39 @@
 					        var dataProvider = {
 					            map: "worldLow",
 					            getAreasFromMap: true,
-					            areas: [{ id: "NP", color: "#d62c1a" }, { id: "PK", color: "#c87f0a" }, { id: "JP", color: "#18bc9c" }, { id: "PH", color: "#18bc9c"}]
+					            areas: [{ 
+								    title: "Nepal",
+								    id: "NP",
+									color: "#d62c1a",
+									selectedColor: "#d62c1a",
+									autoZoom: true
+									}, { 
+									title: "Tanzania",
+									id: "TZ", 
+									color: "#c87f0a",
+									selectedColor: "#c87f0a",
+									autoZoom: true 
+									}, {
+									title: "Burkina Faso",
+									id: "BF", 
+									color: "#18bc9c",
+									selectedColor: "#18bc9c",
+									autoZoom: true									
+									}, { 
+									title: "Mali",
+									id: "ML",
+									color: "#18bc9c",
+									selectedColor: "#18bc9c",
+									autoZoom: true
+									}, { 
+									title: "Zambia",
+									id: "ZM",
+									color: "#18bc9c",
+									selectedColor: "#18bc9c",
+									autoZoom: true
+								}]
 					        };
+						
 					        // pass data provider to the map object
 					        map.dataProvider = dataProvider;
 
@@ -104,11 +137,17 @@
 					        * autoZoom set to true means that the map will zoom-in when clicked on the area
 					        * selectedColor indicates color of the clicked area.
 					        */
+							
+							/**
 					        map.areasSettings = {
 					            autoZoom: true,
-					            selectedColor: "#CC0000"
+					            selectedColor: "#6D8383"								
+					        };*/
+							
+							  map.areasSettings = {					         
+								color: "#E6E6E6"
 					        };
-
+							
 					        // let's say we want a small map to be displayed, so let's create it
 					        map.smallMap = new AmCharts.SmallMap();
 
@@ -121,9 +160,10 @@
 				
 				<h3>Select a country</h3>    
 				<button type="button" class="btn btn-success btn-block btn-danger">Nepal</button>
-				<button type="button" class="btn btn-success btn-block btn-warning">Pakistan</button>
-				<button type="button" class="btn btn-success btn-block btn-success">Philippines</button>
-				<button type="button" class="btn btn-success btn-block btn-success">Japan</button>
+				<button type="button" class="btn btn-success btn-block btn-warning">Tanzania</button>
+				<button type="button" class="btn btn-success btn-block btn-success">Burkina Faso</button>
+				<button type="button" class="btn btn-success btn-block btn-success">Mali</button>
+				<button type="button" class="btn btn-success btn-block btn-success">Zambia</button>
 				</div>
            
 		        <div class="col-md-3" style="margin-top:50px">
